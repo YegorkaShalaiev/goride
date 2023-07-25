@@ -1,17 +1,14 @@
-import "app-module-path/cwd";
-import express, { Request, Response } from 'express';
-import dotenv from 'dotenv';
-import config from 'config';
+import express, { Express, Request, Response } from 'express';
 
-dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
+const HOST: string = 'localhost';
+const PORT: number = 3000;
 
-const app = express();
-const { host, port } = config;
+const app: Express = express();
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, Express with TypeScript!');
+    res.send('Hello, Express with Typescript!');
 });
 
-app.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+app.listen(PORT, HOST, () => {
+    console.log(`Server is running!`);
 });
