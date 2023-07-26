@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
+import config from './config/index.js';
 
-const HOST: string = 'localhost';
-const PORT: number = 3000;
+const { host, port } = config;
 
 const app: Express = express();
 
@@ -9,6 +9,6 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Hello, Express with Typescript!');
 });
 
-app.listen(PORT, HOST, () => {
+app.listen(port, host, () => {
     console.log(`Server is running!`);
 });
